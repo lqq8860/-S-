@@ -1,0 +1,854 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Lv QingQuan TV Media Player </title>
+	<link href="website/css/amp-website.css" rel="stylesheet" type="text/css" />
+
+	<!-- Acorn Media Player specific -->
+	<link href="acornmediaplayer/acornmediaplayer.base.css" rel="stylesheet" type="text/css">
+	<!-- Themes -->
+	<link href="acornmediaplayer/themes/access/acorn.access.css" rel="stylesheet" type="text/css">
+	<link href="acornmediaplayer/themes/darkglass/acorn.darkglass.css" rel="stylesheet" type="text/css">
+	<link href="acornmediaplayer/themes/barebones/acorn.barebones.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+
+	<h1>
+		Lv QingQuan TV Media Player
+		<p>jQuery HTML5 media player</p>
+	</h1>
+
+	
+
+		<figure>
+
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+  
+
+
+
+
+
+
+ <link rel="stylesheet" href="build/mediaelementplayer.css">
+
+  
+
+
+  <style>
+
+        html, body {
+            overflow-x: hidden;
+        }
+
+        #container {
+            padding: 0 20px 50px;
+        }
+        .error {
+            color: red;
+        }
+        a {
+            word-wrap: break-word;
+        }
+
+        code {
+            font-size: 0.8em;
+        }
+
+        #player2-container .mejs__time-buffering, #player2-container .mejs__time-current, #player2-container .mejs__time-handle,
+        #player2-container .mejs__time-loaded, #player2-container .mejs__time-hovered, #player2-container .mejs__time-marker, #player2-container .mejs__time-total {
+            height: 2px;
+        }
+
+        #player2-container .mejs__time-total {
+            margin-top: 9px;
+        }
+        #player2-container .mejs__time-handle {
+            left: -5px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ffffff;
+            top: -5px;
+            cursor: pointer;
+            display: block;
+            position: absolute;
+            z-index: 2;
+            border: none;
+        }
+        #player2-container .mejs__time-handle-content {
+            top: 0;
+            left: 0;
+            width: 12px;
+            height: 12px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="container">
+        
+
+
+
+
+        
+ <h3></h3>
+       
+
+ 
+
+
+    
+<form action="#" method="get">
+               
+
+<label>Language <select name="lang">
+                  
+
+<option value="ca">Català / Catalan (ca)</option>
+                   
+
+<option value="cs">Čeština / Czech (cs)</option>
+                    
+
+<option value="de">Deutsch / German (de)</option>
+ 
+
+                   
+<option value="en" selected>English (en)</option>
+                    
+<option value="es">Español / Spanish; Castilian (es)</option>
+                    
+<option value="fa">فارسی / Persian (fa)</option>
+                    
+<option value="fr">Français / French (fr)</option>
+                   
+ <option value="hr">Hrvatski / Croatian (hr)</option>
+                   
+ <option value="hu">Magyar / Hungarian (hu)</option>
+                    
+<option value="it">Italiano / Italian (it)</option>
+                   
+ <option value="ja">日本語 / Japanese (ja)</option>
+                    
+<option value="ko">한국어 / Korean (ko)</option>
+                   
+ <option value="nl">Nederlands / Dutch (nl)</option>
+                   
+ <option value="pl">Polski / Polish (pl)</option>
+                    
+<option value="pt">Português / Portuguese (pt)</option>
+                   
+ <option value="ro">Română / Romanian (ro)</option>
+                    
+<option value="ru">Русский / Russian (ru)</option>
+                   
+ <option value="sk">Slovensko / Slovak (sk)</option>
+                   
+ <option value="sv">Svenska / Swedish (sv)</option>
+                    
+<option value="uk">Українська / Ukrainian (uk)</option>
+                   
+ <option value="zh">繁体中文 / Traditional Chinese (zh-TW)</option>
+                    
+<option value="zh-CN">简体中文 / Simplified Chinese (zh-CN)</option>
+               
+ </select>
+                </label>
+                
+<label>Stretching (Video Only)<select name="stretching">
+                    
+<option value="auto" selected>Auto (default)</option>
+                    
+<option value="responsive">Responsive</option>
+                    
+<option value="fill" selected>Fill</option>
+                   
+ <option value="none" selected>None (original dimensions)</option>
+               
+
+ </select>
+                </label>
+            </form>
+        </section>
+
+        <br>
+        
+
+
+<div class="players" id="player1-container">
+
+           
+
+ <h3></h3>
+
+
+
+
+
+
+
+           
+ <div class="media-wrapper">
+                
+<video id="player1" width="640" height="360" style="max-width:100%;" poster="http://www.mediaelementjs.com/images/big_buck_bunny.jpg" preload="none" controls playsinline webkit-playsinline>
+                    
+
+
+<source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/CastVideos/mp4/BigBuckBunny.mp4" type="video/mp4">
+                    
+
+<track srclang="en" kind="subtitles" src="mediaelement.vtt">
+                    
+
+<track srclang="en" kind="chapters" src="chapters.vtt">
+                </video>
+            </div>
+            <br>
+            
+
+<div>
+                <label>Sources <select name="sources">
+                    
+
+<option value="http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4">MP4</option>
+                    
+
+
+
+
+
+
+
+<option value="http://121.31.20.139:8114/itv/cctv13?Fsv_otype=1&FvSeid=&Fsv_filetype=&Fsv_ctype=&Fsv_cid=&Fsv_chan_hls_se_idx=&Fsv_rate_id=&Fsv_TBt=&Fsv_ShiftEnable=&Fsv_ShiftTsp=&Fsv_SV_PARAM15=&Provider_id=&Pcontent_id=">CCTV13</option>
+                    
+
+
+
+
+<option value="http://www.streambox.fr/playlists/test_001/stream.m3u8">HLS</option>
+                    
+
+
+<!--<option value="http://www.streambox.fr/playlists/x36xhzz/x36xhzz.m3u8">HLS 2</option>-->
+           
+
+
+
+<option value="http://111.13.42.8/PLTV/88888888/224/3221225851/index.m3u8">CCTV1 HD</option>
+                    
+
+
+<option value="http://111.13.42.8/PLTV/88888888/224/3221225941/index.m3u8">FHZS</option>
+                   
+     
+
+<option value="http://111.13.42.8/PLTV/88888888/224/3221225942/index.m3u8">FHZW</option>
+                    
+
+
+<option value="http://111.13.42.8/PLTV/88888888/224/3221225935/index.m3u8">CCTV3 HD</option>
+                    
+
+
+<option value="http://111.13.42.8/PLTV/88888888/224/3221225937/index.m3u8">CCTV5</option>
+                   
+         
+
+
+<option value="http://111.13.42.8/PLTV/88888888/224/3221225938/index.m3u8">CCTV5+</option>
+                    
+
+<option value="http://111.13.42.8/PLTV/88888888/224/3221226043/index.m3u8">CCTV6 HD</option>
+                    
+
+
+<option value="http://111.13.42.8/PLTV/88888888/224/3221225864/index.m3u8">CCTV8</option>
+                   
+
+
+<option value="http://111.13.42.8/PLTV/88888888/224/3221225874/index.m3u8">BJWS</option>
+                    
+
+<option value="http://111.13.42.8/PLTV/88888888/224/3221225875/index.m3u8">DFWS</option>
+                    
+
+
+<option value="http://111.13.42.8/PLTV/88888888/224/3221225885/index.m3u8">HNWS</option>
+                   
+
+<option value="http://111.13.42.8/PLTV/88888888/224/3221225903/index.m3u8">ZJWS</option>
+                    
+
+
+
+<option value="http://111.13.42.8/PLTV/88888888/224/3221225888/index.m3u8">JXWS</option>
+                    
+
+<option value="http://wgntribune-lh.akamaihd.net/i/WGNPrimary_1@304622/master.m3u8#http://wgntribune-lh.akamaihd.net/i/WGNPrimary_1@304622/index_1000_av-b.m3u8">WGN</option>
+   
+
+
+<option value="http://cdn-videos.akamaized.net/btv/desktop/akamai/asia/live/primary.m3u8">Bloomberg TV ASIA</option>
+                    
+
+
+<option value="http://cdn-videos.akamaized.net/btv/desktop/akamai/europe/live/primary.m3u8">Bloomberg TV Europe</option>
+                    
+
+
+<option value="http://cdn-videos.akamaized.net/btv/desktop/akamai/us/live/primary.m3u8">Bloomberg TV US</option>
+                   
+        
+
+<option value="http://cbsnewshd-lh.akamaihd.net/i/CBSNHD_7@199302/index_700_av-p.m3u8">CBSN</option>
+      
+
+<option value="https://cbsnhls-i.akamaihd.net/hls/live/264710/CBSN_mdialog/prodstream/master.m3u8">CBSN1</option>
+                    
+
+
+<option value="http://bcliveuniv-lh.akamaihd.net/i/news_1@194050/master.m3u8">CBN NEWS</option>
+                    
+
+
+<option value="http://skydvn-nowtv-atv-prod.skydvn.com/atv/skynews/1404/live/04.m3u8">SKY</option>
+                   
+       
+
+<option value="https://nhkwtvglobal-i.akamaihd.net/hls/live/263941/nhkwtvglobal/index_900.m3u8">NHK</option>
+      
+
+<option value="http://tglcnas-lh.akamaihd.net/i/cnas_fta@334579/master.m3u8">ASIA NEWS</option>
+                    
+
+<option value="http://tvemsnbc-lh.akamaihd.net/i/nbcmsnbc_1@122532/master.m3u8">MSNBC</option>
+                    
+
+<option value="http://bcoveliveios-i.akamaihd.net/hls/live/217434-b/3083279840001/master.m3u8#http://bcoveliveios-i.akamaihd.net/hls/live/217434/3083279840001/master_900.m3u8">London  Live</option>
+                   
+         
+<option value="http://ooyalahd2-f.akamaihd.net/i/intv02_delivery@346464/master.m3u8">Insight HD</option>
+      
+
+<option value="http://f24hls-i.akamaihd.net:80/hls/live/221193/F24_EN_LO_HLS/master_900.m3u8">F24H</option>
+          
+
+<option value="http://111.13.42.8/PLTV/88888888/224/3221226032/index.m3u8">CGTN</option>
+      
+
+<option value="http://cmghlslive-i.akamaihd.net/hls/live/224714/WJAX/master.m3u8">CBS47</option>
+                      
+
+<option value="http://cmghlslive-i.akamaihd.net:80/hls/live/224714/WJAX/904k/prog.m3u8">CBS47 1</option>
+   
+
+<option value="http://89.211.63.16:1935/HR06/HR06.stream/chunklist.m3u8">BBC</option>
+ 
+
+<option value="http://89.211.63.16:1935/HR08/HR08.stream/chunklist.m3u8">CNN</option>
+ 
+
+<option value="http://dwstream5-lh.akamaihd.net/i/dwstream5_live@124540/master.m3u8">DW</option>
+   
+
+
+
+
+<option value="http://dwstream4-lh.akamaihd.net/i/dwstream4_live@131329/master.m3u8#http://dwstream1-lh.akamaihd.net/i/dwstream1_live@120422/index_1_av-p.m3u8">DW 1</option>
+   
+
+
+
+<option value="http://bcliveuniv-lh.akamaihd.net/i/iptv1_1@194050/master.m3u8">CBN</option>
+   
+
+<option value="http://cmghlslive-i.akamaihd.net:80/hls/live/224709/KOKI/904k/prog.m3u8">FOX23</option>
+   
+
+<option value="http://cmghlslive-i.akamaihd.net:80/hls/live/224671/WFXT/904k/prog.m3u8">FOX25</option>
+   
+<option value="http://cmghlslive-i.akamaihd.net:80/hls/live/224710/WFOX/904k/prog.m3u8">FOX30</option>
+   
+<option value="http://cmghlslive-i.akamaihd.net/hls/live/224672/WHBQ/904k/prog.m3u8">FOX13</option>
+   
+<option value="http://cmghlslive-i.akamaihd.net/hls/live/224716/WSBTV_BREAKING1/master.m3u8">WSBTV_BREAKING</option>
+   
+<option value="http://mlblive-akc.mlb.com/ls01/mlbam/mlb_network/NETWORK_LINEAR_1/master_wired.m3u8">MLB Network</option>
+   
+<option value="https://d9ruw6nhj5a52.cloudfront.net/live/smil:VODmultibitrate.smil/playlist.m3u8">Miracle Channel</option>
+   
+
+<option value="http://cbsnhls-i.akamaihd.net/hls/live/264710/CBSN_mdialog/prodstream/master_2200.m3u8">CBSN 2200</option>
+   
+
+
+<option value="http://origina.streaming.sk/liveedge/tvfashion/chunklist_w1323605783.m3u8">origina</option>
+   
+
+<option value="http://183.251.61.207/PLTV/88888888/224/3221225817/index.m3u8">CCTV-13</option>
+   
+
+<option value="http://wmsrtsp1.rte.ie/live/android.sdp/playlist.m3u8">爱尔兰- RTE News Now</option>
+   
+
+
+ <option value="rtmp://184.72.239.149/vod/BigBuckBunny_115k.mov">RTMP</option>
+                   
+
+
+ <!--<option value="rtmp://firehose.cul.columbia.edu:1935/vod/mp4:sample.mp4">RTMP</option>-->
+          
+
+<option value="http://59.52.28.166:5011/vod/hls/pd07/7.m3u8">南昌-1</option>
+   
+
+<option value="http://acaooyalahd2-lh.akamaihd.net/i/TBN01_delivery@186239/master.m3u8">美国TBN高清</option>
+   
+
+<option value="http://amdlive.ctnd.com.edgesuite.net/arirang_1ch/smil:arirang_1ch.smil/playlist.m3u8">arirang</option>
+   
+
+<option value="http://aljazeera-eng-hd-live.hls.adaptive.level3.net/aljazeera/english2/index.m3u8#http://aljazeera-eng-apple-live.adaptive.level3.net/apple/aljazeera/english/appleman.m3u8">半岛电视台</option>
+   
+
+
+  
+
+<option value="http://rotation.vod.zlive.cc/channel/1084.m3u8">快乐大本营</option>
+   
+
+<option value="http://rotation.vod.zlive.cc/channel/1083.m3u8">天天向上</option>
+   
+<option value="http://rotation.vod.zlive.cc/channel/1200.m3u8">经典电影</option>
+   
+
+<option value="http://rotation.vod.zlive.cc/channel/1201.m3u8">最新电影</option>
+   
+<option value="http://rotation.vod.zlive.cc/channel/1202.m3u8">电影</option>
+   
+
+
+
+<option value="https://58ada6ee80845.streamlock.net/ios/-bingo-0832/playlist.m3u8">靖洋卡通台Nice Bingo</option>
+   
+
+<option value="https://58ada6ee80845.streamlock.net/ios/-intlmovie-0832/playlist.m3u8">國際電影台</option>
+   
+
+<option value="http://bililive.kksmg.com/hls/stvd6edb9a6_45b34047833af658bf4945a8/playlist.m3u8">上海新闻</option>
+ 
+
+
+<option value="http://hls.live.kksmg.com/live/live24h/playlist.m3u8">上海Knews24新闻</option>
+   
+
+
+<option value="http://chinanet2-live.bestvcdn.com.cn/live/program/Dkankan.live.bestvcdn.com.cnD/_rYG-001Cte_keyB45B8BB90A3AE8D9262CA510D209766B6C5B0759821C1CBE18DDEB666652A083_/live/wypd/400000/mnf.m3u8">外语ics</option>
+   
+<option value="http://bcoveliveios-i.akamaihd.net/hls/live/248519/1242843915001_1/master.m3u8">CPAC</option>
+ 
+
+<option value="http://weather-lh.akamaihd.net:80/i/twc_1@92006/master.m3u8">The Weather Network</option>
+ 
+<option value="https://secure-streams.akamaized.net/rt-uk/index.m3u8">RT UK</option>
+ 
+<option value="http://ooyalahd2-f.akamaihd.net/i/chelsea02_delivery@145821/master.m3u8">Chelsea TV</option>
+ 
+<option value="http://ooyalahd2-f.akamaihd.net/i/intv02_delivery@346464/master.m3u8">Insight</option>
+ 
+<option value="http://bcoveliveios-i.akamaihd.net/hls/live/217434/3083279840001/master.m3u8">London Live</option>
+ 
+<option value="http://mediaworks-i.akamaihd.net/hls/live/220435/3812193411001/3news_live/master.m3u8">NEW ZEALAND</option>
+ 
+<option value="http://tvsn-i.akamaihd.net/hls/live/261837/tvsn_nz/tvsn_nz_750.m3u8">TVSN</option>
+ 
+<option value="http://stream.wairarapatv.co.nz/Cellular_High/playlist.m3u8">Wairarapa TV</option>
+ 
+<option value="http://live-tx-hdl.huomaotv.cn/live/4bgtCR24082.m3u8">movies-1</option>
+ 
+<option value="http://live-tx-hdl.huomaotv.cn/live/9gFWYZ24081.m3u8">movies-2</option>
+ 
+<option value="http://live-tx-hdl.huomaotv.cn/live/buxKMY24084.m3u8">movies-3</option>
+ 
+
+
+
+
+
+<option value="http://dlhls.cdn.zhanqi.tv/zqlive/49427_jmACJ.m3u8">电视剧-三国演义</option>
+ 
+<option value="http://live-bloomberg-ap-north.global.ssl.fastly.net/ap/AP1000kb_live.m3u8">bloomberg</option>
+ 
+<option value="http://tglch5-lh.akamaihd.net/i/channel5_fta@334581/master.m3u8">channel5</option>
+ 
+
+<option value="http://tglch8-lh.akamaihd.net/i/channel8_fta@334582/master.m3u8">channel8</option>
+ 
+<option value="http://tglchu-lh.akamaihd.net/i/channelu_fta@334583/master.m3u8">channelu</option>
+ 
+<option value="http://kntvlive-f.akamaihd.net/i/kntvb2_1@15530/index_1286_av-p.m3u8">NBC 11 News</option>
+ 
+
+<option value="http://cbslocaltv-i.akamaihd.net/hls/live/221461/WBZTV/master.m3u8">WBZTV</option>
+ 
+<option value="http://hls.iptv.optimum.net/news12/nipadlive/index_new.m3u8?callsign=N12BX">news12-1</option>
+ 
+<option value="http://hls.iptv.optimum.net/news12/nipadlive/index_new.m3u8?callsign=N12KN">news12-2</option>
+ 
+
+<option value="http://cmghlslive-i.akamaihd.net:80/hls/live/224717/WSOC/904k/prog.m3u8">WSOC 9 News </option>
+ 
+<option value="http://wgntribune-lh.akamaihd.net/i/WGNPrimary_1@304622/index_750_av-b.m3u8">WGN 9 News (Chicago)</option>
+ 
+<option value="http://krex-apple-live.hls.adaptive.level3.net/stream0/master.m3u8">level3</option>
+ 
+
+<option value="http://rotation.vod.zlive.cc/channel/2190.m3u8">微在</option>
+ 
+<option value="http://pl-hls29.live.panda.tv/live_panda/ea97daa57a2f496cddc53da259d1f8fc.m3u8">老友记</option>
+ 
+<option value="C:/Users/Microsoft/Desktop/pink.flag/acornmediaplayer/Yellowstone National Park.mp4">Yellowstone National Park</option>
+ 
+
+
+<option value="http://live-tx-hdl.huomaotv.cn/live/4bgtCR24082.m3u8">movies-1</option>
+ 
+<option value="http://live-tx-hdl.huomaotv.cn/live/9gFWYZ24081.m3u8">movies-2</option>
+ 
+<option value="http://live-tx-hdl.huomaotv.cn/live/buxKMY24084.m3u8">movies-3</option>
+ 
+
+<option value="http://live-tx-hdl.huomaotv.cn/live/4bgtCR24082.m3u8">movies-1</option>
+ 
+<option value="http://live-tx-hdl.huomaotv.cn/live/9gFWYZ24081.m3u8">movies-2</option>
+ 
+<option value="http://live-tx-hdl.huomaotv.cn/live/buxKMY24084.m3u8">movies-3</option>
+ 
+
+
+<option value="http://live-tx-hdl.huomaotv.cn/live/4bgtCR24082.m3u8">movies-1</option>
+ 
+<option value="http://live-tx-hdl.huomaotv.cn/live/9gFWYZ24081.m3u8">movies-2</option>
+ 
+<option value="http://live-tx-hdl.huomaotv.cn/live/buxKMY24084.m3u8">movies-3</option>
+ 
+
+<option value="http://live-tx-hdl.huomaotv.cn/live/4bgtCR24082.m3u8">movies-1</option>
+ 
+<option value="http://live-tx-hdl.huomaotv.cn/live/9gFWYZ24081.m3u8">movies-2</option>
+ 
+<option value="http://live-tx-hdl.huomaotv.cn/live/buxKMY24084.m3u8">movies-3</option>
+ 
+
+
+<option value="http://live-tx-hdl.huomaotv.cn/live/4bgtCR24082.m3u8">movies-1</option>
+ 
+<option value="http://live-tx-hdl.huomaotv.cn/live/9gFWYZ24081.m3u8">movies-2</option>
+ 
+<option value="http://live-tx-hdl.huomaotv.cn/live/buxKMY24084.m3u8">movies-3</option>
+ 
+
+
+<option value="http://live-tx-hdl.huomaotv.cn/live/4bgtCR24082.m3u8">movies-1</option>
+ 
+<option value="http://live-tx-hdl.huomaotv.cn/live/9gFWYZ24081.m3u8">movies-2</option>
+ 
+<option value="http://live-tx-hdl.huomaotv.cn/live/buxKMY24084.m3u8">movies-3</option>
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<option value="http://dash.edgesuite.net/envivio/EnvivioDash3/manifest.mpd">M(PEG)-DASH 1</option>-->
+          
+
+
+<option value="http://www.bok.net/dash/tears_of_steel/cleartext/stream.mpd">M(PEG)-DASH</option>
+                
+
+
+</select>
+                </label>
+            </div>
+            <br>
+            
+
+<div class="player-info">
+                
+
+
+
+
+
+<h4>Player information</h4>
+                
+
+<div id="player1-rendername">
+                   
+
+
+
+
+
+ <p><strong>Source</strong>: <span class="src"><a href="https://commondatastorage.googleapis.com/gtv-videos-bucket/CastVideos/mp4/BigBuckBunny.mp4" target="_blank">https://commondatastorage.googleapis.com/gtv-videos-bucket/CastVideos/mp4/BigBuckBunny.mp4</a></span></p>
+                   
+
+
+
+
+ <p><strong>Renderer</strong>: <span class="renderer">html5</span></p>
+                   
+
+
+
+
+ <p class="error"></p>
+               
+
+
+
+ </div>
+            </div>
+        </div>
+
+        <br>
+        <hr>
+
+        
+
+
+
+
+<div class="players" id="player2-container">
+
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ </select>
+                </label>
+            </div>
+            <br>
+            <div class="player-info">
+               
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+           
+
+
+ <p class="error"></p>
+               
+
+ </div>
+            </div>
+
+        </div>
+    </div>
+
+   
+
+
+ 
+<script src="build/mediaelement-and-player.js"></script>
+    
+
+<script src="build/renderers/dailymotion.js"></script>
+   
+ 
+<script src="build/renderers/facebook.js"></script>
+    
+<script src="build/renderers/soundcloud.js"></script>
+    
+<script src="build/renderers/twitch.js"></script>
+    
+<script src="build/renderers/vimeo.js"></script>
+    
+<script src="build/lang/cs.js"></script>
+    
+<script src="build/lang/de.js"></script>
+    
+<script src="build/lang/es.js"></script>
+    
+<script src="build/lang/fa.js"></script>
+    
+<script src="build/lang/fr.js"></script>
+    
+<script src="build/lang/hr.js"></script>
+   
+ 
+<script src="build/lang/hu.js"></script>
+    
+
+
+
+<script src="build/lang/it.js"></script>
+    
+
+
+<script src="build/lang/ja.js"></script>
+    
+
+
+
+<script src="build/lang/ko.js"></script>
+    
+
+<script src="build/lang/nl.js"></script>
+    
+
+<script src="build/lang/pl.js"></script>
+    
+
+<script src="build/lang/pt.js"></script>
+    
+
+<script src="build/lang/ro.js"></script>
+   
+
+
+ <script src="build/lang/ru.js"></script>
+   
+
+ <script src="build/lang/sk.js"></script>
+    
+
+
+<script src="build/lang/sv.js"></script>
+    
+
+
+<script src="build/lang/uk.js"></script>
+    
+
+
+<script src="build/lang/zh-cn.js"></script>
+    
+
+
+<script src="build/lang/zh.js"></script>
+    
+
+
+
+<script src="demo/demo.js"></script>
+
+
+</figure>
+	</section>
+
+	<section id="demos">
+		<a href="demos.html" id="demo-button">See more demos</a>
+		<h2>Demos</h2>
+	</section>
+
+	<section id="download">
+		<a href="https://github.com/ghinda/acornmediaplayer/zipball/gh-pages" id="download-button">Download</a>
+		<h2>Download</h2>
+		<p>You can download the latest version from <a href="https://github.com/ghinda/acornmediaplayer">GitHub</a>. </p>
+	</section>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
